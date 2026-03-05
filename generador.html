@@ -3,49 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/sitio.webmanifest" />
-
     <title>..:: Collage ::..</title>
-    <!-- <meta name="description" content="Descripción del sitio...." /> -->
 
-    <!-- OpenGraph -->
-    <meta property="og:locale" content="es_CO" />
-    <meta property="og:type" content="website" />
-    <!-- Esto importa la hoja de estilos de la página -->
-    <link rel="stylesheet" href="style2.css" />​
-
-    <!-- Esto importa el archivo de JavaScript de la página -->
+    <link rel="stylesheet" href="style2.css" />
     <script src="script2.js" defer></script>
   </head>
+
   <body>
-    <div id="contenedorGeneral">
+    <div id="layout">
+      <!-- IZQUIERDA: título -->
       <h1 id="tituloPagina">
-        <a href="https://en.wikipedia.org/wiki/Bestiario" target="_blank"
-          >Bestiario / Collage</a
-        >
-      </h1>
+  <span class="l1">c</span>
+  <span class="l2">o</span>
+  <span class="l3">n</span>
+  <span class="l4">s</span>
+  <span class="l5">t</span>
+  <span class="l6">r</span>
+  <span class="l7">ú</span>
+  <span class="l8">y</span>
+  <span class="l9">e</span>
+  <span class="l10">t</span>
+  <span class="l11">e</span>
+</h1>
+
+      <!-- CENTRO: personaje -->
       <div id="contenedorPersonaje">
-        <img
-          class="imagen"
-          id="ojo"
-          src=""
-        />
-        <img
-          class="imagen"
-          id="nariz"
-          src=""
-        />
-        <img
-          class="imagen"
-          id="boca"
-          src=""
-        />
+        <img class="imagen" id="ojo" alt="ojo" />
+        <img class="imagen" id="nariz" alt="nariz" />
+        <img class="imagen" id="boca" alt="boca" />
       </div>
 
-      <button id="boton">Mezclar</button>
+      <!-- DERECHA: botón rojo -->
+      <button id="boton" aria-label="Mezclar"></button>
     </div>
   </body>
 </html>

@@ -1,67 +1,86 @@
-@import url('https://fonts.googleapis.com/css2?family=Barriecito&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Barriecito&display=swap");
 
+html { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: inherit; }
 
-html {
-  box-sizing: border-box;
-  height: 100%;
+body{
+  margin:0;
+  padding:0;
+  background:white;
 }
 
-html,
-body {
-  margin: 0;
-  padding: 0;
+/* layout 3 columnas */
+#layout{
+  min-height: 100vh;
+  display:flex;
+  align-items:center;      /* centra vertical */
+  justify-content:space-between;
+  padding: 0 90px;
 }
 
-::selection {
-  background-color: #30cac073;
-  color: #130808;
+/* TITULO A LA IZQUIERDA */
+#tituloPagina{
+font-family:"Barriecito", system-ui;
+font-size:8vw;
+margin:0;
 }
 
-h2 {
-  font-size: 1.1em;
-  
+#tituloPagina span{
+display:inline-block;
+margin:0;
 }
 
-a, a:active, a:visited, a:hover {
-  color: rgb(193, 120, 199);
+#tituloPagina{
+  display:flex
+}
+.l1{color: #ff4c4f;}
+.l2{color:#ff4c4c;}
+.l3{color:#3affde;}
+.l4{color:#4926c9;}
+.l5{color:#b75286;}
+.l6{color:#1982c4;}
+.l7{color:#4267ac;}
+.l8{color:#6a4c93;}
+.l9{color:#c77dff;}
+.l10{color:#ff5d8f;}
+.l11{color:#ff8fab;}
+
+/* COLLAGE CENTRO */
+#contenedorPersonaje{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap: 10px;
+}
+
+/* imágenes grandes */
+.imagen{
+  width: 320px;
+  height: 300px;
+  object-fit: cover;
+  display:block;
+  border: 1px solid #ddd; /* opcional, para que se vean como en tu captura */
+}
+
+/* BOTÓN ROJO DERECHA */
+#boton{
+  width: 10vw;
+  height: 10vw;
+  border-radius: 50%;
+  border: none;
   cursor: pointer;
-  text-decoration: none;
+
+  background: radial-gradient(circle at 30% 30%, #ff4d4d, #c40000);
+
+  box-shadow:
+    inset 0 12px 22px rgba(255,255,255,0.5),
+    inset 0 -12px 22px rgba(0,0,0,0.5),
+    0 12px 20px rgba(0,0,0,0.3);
+
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
 }
 
-#contenedorGeneral {
-  margin: auto 1em;
-  text-align: center;
-}
-
-#tituloPagina {
-  margin-top: 1em;
-  margin-bottom: 0;
-  margin-bottom: 0.5em;
-  font-family: "Barriecito", system-ui;
-  font-weight: 400;
-  font-style: normal;
-}
-
-#tituloPagina:hover {
-  color: pink;
-  cursor: pointer;
-}
-
-#contenedorPersonaje {
-  display: flex;
-  flex-direction: column;
-  align-items: space-around;
-}
-
-.imagen {
-  height: 170px;
-  width: 150px;
-  margin: 0em auto;
-}
-
-#boton {
-  font-size: 0.9em;
-  background-color:  rgb(193, 120, 199);
-  color: white;
-  cursor: pointer;
+#boton:active{
+  transform: translateY(10px);
+  box-shadow: inset 0 5px 10px rgba(0,0,0,0.6);
 }
