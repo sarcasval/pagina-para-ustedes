@@ -8,6 +8,37 @@ body{
   padding:0;
   background:white;
 }
+body {
+  background: linear-gradient(
+    45deg,
+    #ff5f6d,
+    #7fff71,
+    #47e5bc,
+    #4c6ef5,
+    #c77dff,
+    #ff5f6d
+  );
+
+  background-size: 400% 400%;
+  animation: fondoPsicodelico 12s ease infinite;
+
+  margin:0;
+  font-family: sans-serif;
+}
+
+@keyframes fondoPsicodelico{
+  0%{
+    background-position:0% 50%;
+  }
+
+  50%{
+    background-position:100% 50%;
+  }
+
+  100%{
+    background-position:0% 50%;
+  }
+}
 
 /* layout 3 columnas */
 #layout{
@@ -33,7 +64,7 @@ margin:0;
 #tituloPagina{
   display:flex
 }
-.l1{color: #ff4c4f;}
+.l1{color: #ff4c4fd2;}
 .l2{color:#ff4c4c;}
 .l3{color:#3affde;}
 .l4{color:#4926c9;}
