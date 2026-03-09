@@ -21,9 +21,33 @@ const nariz = document.getElementById("nariz");
 const boca = document.getElementById("boca");
 const boton = document.getElementById("boton");
 const musica = document.getElementById("musicaFondo");
+const linkSecreto = document.getElementById("linkSecreto");
 
 function numeroAleatorio(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
+}
+
+function verificarCara(o, n, b) {
+  if (o === 0 && n === 0 && b === 0) {
+    linkSecreto.style.display = "block";
+    linkSecreto.textContent = "mamá";
+    linkSecreto.href = "mama.html";
+  } 
+  else if (o === 1 && n === 1 && b === 1) {
+    linkSecreto.style.display = "block";
+    linkSecreto.textContent = "hermano";
+    linkSecreto.href = "hermano.html";
+  } 
+  else if (o === 2 && n === 2 && b === 2) {
+    linkSecreto.style.display = "block";
+    linkSecreto.textContent = "papá";
+    linkSecreto.href = "papa.html";
+  } 
+  else {
+    linkSecreto.style.display = "none";
+    linkSecreto.textContent = "";
+    linkSecreto.href = "#";
+  }
 }
 
 function generarBestia() {
@@ -34,6 +58,8 @@ function generarBestia() {
   ojos.src = listaOjos[ojosAleatorio];
   nariz.src = listaNarices[narizAleatorio];
   boca.src = listaBocas[bocaAleatorio];
+
+  verificarCara(ojosAleatorio, narizAleatorio, bocaAleatorio);
 }
 
 boton.addEventListener("click", function () {
