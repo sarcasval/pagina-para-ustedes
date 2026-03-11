@@ -1,14 +1,94 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Papá</title>
-  <link rel="stylesheet" href="collages.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Papá</title>
+
+<link rel="stylesheet" href="collages.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Waiting+for+the+Sunrise&display=swap" rel="stylesheet">
+
 </head>
+
 <body class="pagina-collage">
-  <main class="marco-collage">
-    <img src="assets/papa.png" alt="Collage de papá" class="imagen-collage">
-  </main>
+
+<main class="marco-collage">
+
+<img src="assets/papa.png" alt="Collage de papá" class="imagen-collage">
+
+<div id="carta"></div>
+
+</main>
+
+
+<audio id="audioPapa" loop>
+<source src="assets/musicapapa.MP3" type="audio/mpeg">
+</audio>
+
+
+<script>
+
+const texto = `Querido papá,
+
+Voy por la vida soñando, gracias a ti.
+Voy por la vida bailando, porque aprendí a hacerlo contigo.
+Voy por la vida esforzándome por mis metas, porque así me enseñaste a caminar el mundo.
+Voy por la vida hablando sin miedo, porque me enseñaste que mi voz también es importante.
+Voy por la vida sabiendo que, cuando todo se vuelve difícil, siempre existe un lugar al que puedo regresar: tus brazos, donde puedo volver a ser pequeña.
+
+Gracias por enseñarme que vale la pena soñar y trabajar por lo que uno ama.
+Gracias por ser ese hombre sabio y amoroso que siempre me guía.
+Gracias por creer en mí, por permitirme estudiar, por abrirme caminos.
+Gracias por cantar y bailar conmigo, por llenar mi vida de alegría en los momentos más simples.
+Gracias por ser mi papá:
+la persona a la que más admiro y el lugar al que siempre quiero volver.
+
+Con amor,
+
+Negra`;
+
+const destino = document.getElementById("carta");
+
+let i = 0;
+
+function escribir(){
+
+if(i < texto.length){
+
+destino.innerHTML = texto.substring(0,i+1) + "|";
+
+i++;
+
+setTimeout(escribir,35);
+
+}
+
+}
+
+/* empieza a escribir después de 18 segundos */
+
+setTimeout(escribir,18000);
+
+
+
+/* musica */
+
+const audioPapa = document.getElementById("audioPapa");
+
+function iniciarAudio(){
+
+audioPapa.play().catch(()=>{});
+
+}
+
+window.addEventListener("load", iniciarAudio);
+
+document.addEventListener("click", iniciarAudio,{once:true});
+
+
+</script>
+
 </body>
 </html>

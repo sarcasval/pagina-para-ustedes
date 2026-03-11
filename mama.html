@@ -1,14 +1,81 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mamá</title>
-  <link rel="stylesheet" href="collages.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mamá</title>
+
+<link rel="stylesheet" href="collages.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Waiting+for+the+Sunrise&display=swap" rel="stylesheet">
+
 </head>
+
 <body class="pagina-collage">
-  <main class="marco-collage">
-    <img src="assets/mama.png" alt="Collage de mamá" class="imagen-collage">
-  </main>
+
+<main class="marco-collage">
+
+<img src="assets/mama.png" alt="Collage de mamá" class="imagen-collage">
+
+<div id="carta"></div>
+
+</main>
+
+<audio id="audioMama" loop>
+<source src="assets/musicamama.MP3" type="audio/mpeg">
+</audio>
+
+<script>
+
+const texto = `Querida mamá,
+
+Hoy escribo esta carta con el corazón lleno de felicidad. Ser mujer creciendo contigo ha sido un camino lleno de empoderamiento, seguridad, perseverancia y amor. Gracias por enseñarme que la persona a la que más debo cuidar es a mí misma.
+
+Crecer a tu lado es saber que no me debo rendir, que siempre hay fuerza dentro de mí para seguir adelante. Tu ejemplo me ha mostrado lo que significa ser una mujer fuerte, generosa y valiente.
+
+Gracias por tu generosidad infinita, por dar siempre amor sin esperar nada a cambio, también por ser incondicional, por estar en cada momento de mi vida.
+
+Me encanta que seas mi mamá.
+
+Me enseñaste a luchar por lo que quiero, a confiar en mí y a caminar por la vida con amor y valentía.
+
+Con todo mi amor,
+
+Sara.`;
+
+const destino = document.getElementById("carta");
+
+let i = 0;
+
+function escribir(){
+
+if(i < texto.length){
+
+destino.innerHTML = texto.substring(0,i+1) + "|";
+
+i++;
+
+setTimeout(escribir,40);
+
+}
+
+}
+
+setTimeout(escribir,18000);
+
+
+const audioMama = document.getElementById("audioMama");
+
+function iniciarAudio(){
+
+audioMama.play().catch(()=>{});
+
+}
+
+window.addEventListener("load", iniciarAudio);
+document.addEventListener("click", iniciarAudio,{once:true});
+
+</script>
+
 </body>
 </html>
