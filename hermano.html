@@ -4,11 +4,124 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hermano</title>
+
   <link rel="stylesheet" href="collages.css">
+  <link rel="stylesheet" href="hermano.css">
+  <link href="https://fonts.googleapis.com/css2?family=Waiting+for+the+Sunrise&display=swap" rel="stylesheet">
 </head>
+
 <body class="pagina-collage">
+
   <main class="marco-collage">
-    <img src="assets/hermano.png" alt="Collage de hermano" class="imagen-collage">
+    <img src="assets/hermano.png" class="imagen-collage" alt="Collage de hermano">
+
+    <div id="pantallaCuento">
+      <div id="texto"></div>
+      <div id="continuar">click para continuar</div>
+    </div>
   </main>
+
+  <audio id="audioHermano" loop>
+    <source src="assets/musicahermano.MP3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const paginas = [
+`Había una vez, en un bosque lleno de árboles gigantes y ríos que cantaban, una pequeña ardillita.
+
+La ardillita era curiosa, juguetona y siempre tenía mil ideas en la cabeza. Le encantaba saltar de rama en rama, inventar canciones y reírse tan fuerte que hasta los pájaros se callaban para escucharla.`,
+
+`Pero en ese mismo bosque vivía alguien muy especial para ella.
+
+En lo alto de un antiguo árbol vivía un búho.
+
+El búho era tranquilo, observador y parecía conocer los secretos del bosque. Siempre miraba todo con calma, como si pudiera entender cosas que los demás no.`,
+
+`La ardillita iba a visitarlo casi todos los días.
+
+—¡Ven a jugar! —decía mientras subía por el árbol.
+
+A veces jugaban a saltar entre ramas.
+Otras veces inventaban canciones tontas que hacían reír a todo el bosque.`,
+
+`Pero no todo era perfecto.
+
+A veces discutían.
+
+—¡Tú siempre quieres hacerlo todo rápido! —decía el búho moviendo las alas.
+
+—¡Y tú siempre piensas demasiado! —respondía la ardillita cruzándose de brazos.`,
+
+`Entonces cada uno se iba a una rama diferente… en silencio.
+
+Pero el silencio nunca duraba mucho.
+
+Porque al poco rato, uno de los dos empezaba a reír… y el otro también.
+
+Y terminaban otra vez juntos.`,
+
+`Un día, mientras miraban el atardecer, la ardillita se quedó muy callada.
+
+—¿Sabes algo? —dijo.
+
+—¿Qué cosa? —preguntó el búho.
+
+—Que cuando estoy contigo soy más feliz y puedo ser yo.`,
+
+`El búho abrió un poco más sus grandes ojos brillantes.
+No dijo nada. Solo le regaló una sonrisa tranquila y la envolvió suavemente con una de sus alas.
+
+La ardillita sintió el calor de ese abrazo y supo que su mayor fortuna era tener al búho en su vida.`,
+
+`Desde ese día entendieron algo muy importante:
+
+El bosque era enorme y lleno de aventuras…
+pero lo mejor de todo era recorrerlo juntos.`,
+
+`Porque aunque a veces pensaban distinto, siempre sabían que podían volver a la misma rama.
+
+La rama donde viven las risas, los recuerdos 
+y el cariño que nunca se acaba.`,
+
+`Y así, el búho sabio y la ardillita inquieta siguieron creciendo en el bosque aprendiendo uno del otro,
+día tras día.`
+    ];
+
+    let estado = "inicio";
+    let pagina = 0;
+
+    const texto = document.getElementById("texto");
+    const continuar = document.getElementById("continuar");
+    const pantalla = document.getElementById("pantallaCuento");
+    const audio = document.getElementById("audioHermano");
+
+    function mostrarPagina() {
+      texto.innerText = paginas[pagina];
+    }
+
+    continuar.onclick = () => {
+      if (estado === "inicio") {
+        estado = "cuento";
+        mostrarPagina();
+        return;
+      }
+
+      pagina++;
+
+      if (pagina < paginas.length) {
+        mostrarPagina();
+      } else {
+        pantalla.style.display = "none";
+      }
+    };
+
+    function iniciarAudio() {
+      audio.play().catch(() => {});
+    }
+
+    window.addEventListener("load", iniciarAudio);
+    document.addEventListener("click", iniciarAudio, { once: true });
+  </script>
+
 </body>
 </html>
